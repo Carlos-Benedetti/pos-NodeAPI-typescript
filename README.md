@@ -26,3 +26,21 @@
 ### PS
   edite `SOMENTE` os arquivos dentro da pasta ./app
   
+## Debuggin
+### no vscode somente
+copie o link que o terminal ira exibir no inicio da aplicação 
+
+ex: `Debugger listening on ws://127.0.0.1:5858/85969abe-0027-4973-b961-dcbdf02ebf33`
+e cole a URL somente no address no ./vscode/launch.json
+>./vscode/launch.json
+```JSON
+...
+"configurations": [
+{
+    ...
+    "address": "127.0.0.1:5858/85969abe-0027-4973-b961-dcbdf02ebf33"
+    ...
+```
+coloque os breackpints
+precione 
+  >F5
