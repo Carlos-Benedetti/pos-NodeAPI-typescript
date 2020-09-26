@@ -1,4 +1,4 @@
-import Produto, { IProduto } from '../app/models/product';
+import Produto, { IProduct } from '../app/models/product';
 import { RequestHandler } from 'express'
 export module ProductController {
     export const post: RequestHandler = (req, res) => {

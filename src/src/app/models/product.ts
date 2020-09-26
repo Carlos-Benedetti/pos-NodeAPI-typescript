@@ -1,20 +1,21 @@
 import { Schema, model, Document } from 'mongoose';
-interface IProdutoSchema extends Document {
+export interface IProduct  {
     nome: string,
     preco: number,
     descricao: string
 }
-interface IProdutoBase extends IProdutoSchema {
+interface IProductSchema extends Document,IProduct {
+    
+}
+interface IProductBase extends IProductSchema {
 
 }
 
-export interface IProduto extends IProdutoBase {
-    //add Relaçoes Aqui
-}
-const produtoSchema = new Schema<IProduto>({
+
+const productSchema = new Schema<IProduct>({
     nome: String,
     preco: Number,
     descricao: String
 });
 
-export default model<IProduto>('Produto', produtoSchema);
+export default model<IProductSchema>('Produto', productSchema);

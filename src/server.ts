@@ -7,20 +7,21 @@ import mongoose from 'mongoose';
 //configurar o app para usar o body-parser e tranformar as requisicoes em json
 app.use(bodyParser.json());
 //@ts-ignore
-app.use(bodyParser.urlencoded({extends: true}));
+app.use(bodyParser.urlencoded({ extends: true }));
 
 //Persistencias
-                           
+
 const connection_string = "mongodb+srv://Cadu:1234@cluster0.wxwdo.gcp.mongodb.net/dbpos?retryWrites=true&w=majority";
-mongoose.connect(connection_string,  {useNewUrlParser:true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect(connection_string, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 //Definir porta onde o server vai responder 
 const port = process.env.PORT || 3000;
 
 //definir as rotar
 const router = express.Router(); //intercepta todas as rotas 
-import {productRouter} from './src/routes/product-route';
-import {indexRouter} from './src/routes/index-router';
+import { productRouter } from './src/routes/product-route';
+import { indexRouter } from './src/routes/index-router';
+import { customerRouter } from "./src/routes/customer-route";
 
 
 //vincular a aplicacao (app) com o motor de rotas do express
@@ -31,6 +32,7 @@ app.use('/api', indexRouter);
 
 //rota para produto
 app.use('/api/produtos/', productRouter);
+app.use('/api/clientes/', customerRouter);
 
 
 app.listen(port, () => {
