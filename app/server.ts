@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 //@ts-ignore
 app.use(bodyParser.urlencoded({ extends: true }));
 
-if(!process.env.MONGO_CONNECTION_STRING){ throw new Error("variavel secreta do mongo não settada");
+if (!process.env.MONGO_CONNECTION_STRING) {
+    throw new Error("variavel secreta do mongo não settada");
 }
 
 const connection_string = process.env.MONGO_CONNECTION_STRING;
